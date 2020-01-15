@@ -4,5 +4,5 @@ from .views import *
 
 
 portfolio_v1_urls = [
-    # path('profile/', ProductionListView.as_view(), name='profile'),
+    path('profile/<str:username>', ProfileView.as_view(), name='profile'),
 ]

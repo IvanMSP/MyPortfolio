@@ -1,12 +1,11 @@
 # coding: utf8
-
+from django.contrib.auth.models import User
 # Third-party Libraries
 from rest_framework import (mixins, status)
 from rest_framework.response import Response
 
 # Own´s Libraries
-from accounts.models import User
-from continuity_framework.response import EnvelopeResponse
+from portfolio_framework.response import EnvelopeResponse
 
 
 class TokenMixin(object):
