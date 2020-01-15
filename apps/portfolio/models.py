@@ -11,6 +11,7 @@ class Profile(models.Model):
         User,
         on_delete=models.CASCADE
     )
+    avatar = models.ImageField(max_length=1000, upload_to='avatars/', **NULL)
     profession = models.CharField(max_length=50, **NULL)
     location = models.CharField(max_length=250, **NULL)
     about = models.TextField()
