@@ -16,7 +16,7 @@ DJANGO_APPS = [
 ]
 
 OWNER_APPS = [
-
+    'portfolio.apps.PortfolioConfig',
 ]
 
 THIRD_PARTY_APPS = [
