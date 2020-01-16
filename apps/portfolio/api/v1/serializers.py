@@ -6,11 +6,23 @@ from django.contrib.auth.models import User
 from ...models import *
 
 
+class LinkSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = LinkModel
+        fields = (
+            'id',
+            'name',
+            'link'
+        )
+
+
 class UserSerializer(serializers.ModelSerializer):
     profession = serializers.SerializerMethodField()
     avatar = serializers.SerializerMethodField()
     location = serializers.SerializerMethodField()
     about = serializers.SerializerMethodField()
+    links = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -23,7 +35,8 @@ class UserSerializer(serializers.ModelSerializer):
             'profession',
             'avatar',
             'location',
-            'about'
+            'about',
+            'links'
         )
 
     def get_profession(self, user):
@@ -37,4 +50,9 @@ class UserSerializer(serializers.ModelSerializer):
 
     def get_about(self, user):
         return user.profile.about
+
+    def get_links(self, user):
+        queryset = user.profile.links.all()
+        serializer = LinkSerializer(queryset, many=True)
+        return serializer.data
 
