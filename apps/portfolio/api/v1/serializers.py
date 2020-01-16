@@ -18,11 +18,6 @@ class LinkSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    profession = serializers.SerializerMethodField()
-    avatar = serializers.SerializerMethodField()
-    location = serializers.SerializerMethodField()
-    about = serializers.SerializerMethodField()
-    links = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -32,27 +27,37 @@ class UserSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'email',
-            'profession',
+        )
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    links = LinkSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = (
+            'id',
+            'user',
             'avatar',
+            'profession',
             'location',
             'about',
             'links'
         )
 
-    def get_profession(self, user):
-        return user.profile.profession
 
-    def get_avatar(self, user):
-        return user.profile.avatar.url
+class ExperienceSerializer(serializers.ModelSerializer):
+    startDate = serializers.DateTimeField(source='start_date', format='%Y-%m-%d')
+    endDate = serializers.DateTimeField(source='end_date', format='%Y-%m-%d')
 
-    def get_location(self, user):
-        return user.profile.location
-
-    def get_about(self, user):
-        return user.profile.about
-
-    def get_links(self, user):
-        queryset = user.profile.links.all()
-        serializer = LinkSerializer(queryset, many=True)
-        return serializer.data
+    class Meta:
+        model = ExperienceModel
+        fields = (
+            'name',
+            'picture',
+            'startDate',
+            'endDate',
+            'description'
+        )
 
