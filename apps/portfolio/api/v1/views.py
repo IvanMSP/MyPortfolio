@@ -10,7 +10,8 @@ from portfolio_framework.views import (
 from .serializers import (
     ExperienceSerializer,
     ProfileSerializer,
-    EducationSerializer
+    EducationSerializer,
+    SkillSerializer
 )
 # Models
 from ...models import Profile
@@ -50,3 +51,16 @@ class EducationView(ListView):
         profile_id = self.request.query_params.get('profile_id')
         profile = get_object_or_404(Profile, pk=profile_id)
         return profile.educaciones.all()
+
+
+class SkillView(ListView):
+    """
+        ListView Education User
+        query_params: profile_id
+    """
+    serializer_class = SkillSerializer
+
+    def get_queryset(self):
+        profile_id = self.request.query_params.get('profile_id')
+        profile = get_object_or_404(Profile, pk=profile_id)
+        return profile.skills.all()

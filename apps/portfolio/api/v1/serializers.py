@@ -75,3 +75,13 @@ class EducationSerializer(serializers.ModelSerializer):
             'endDate',
             'description'
         )
+
+
+class SkillSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = SkillModel
+        fields = (
+            'name',
+            'percent'
+        )
