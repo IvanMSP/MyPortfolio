@@ -61,3 +61,17 @@ class ExperienceSerializer(serializers.ModelSerializer):
             'description'
         )
 
+
+class EducationSerializer(serializers.ModelSerializer):
+    startDate = serializers.DateTimeField(source='start_date', format='%Y-%m-%d')
+    endDate = serializers.DateTimeField(source='end_date', format='%Y-%m-%d')
+
+    class Meta:
+        model = ExperienceModel
+        fields = (
+            'name',
+            'picture',
+            'startDate',
+            'endDate',
+            'description'
+        )
