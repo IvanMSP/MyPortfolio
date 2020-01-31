@@ -1,10 +1,15 @@
+dj-database-url==0.5.0
 Django==2.2.8
 djangorestframework==3.10.3
-mysqlclient==1.4.4
+gunicorn==20.0.4
 Pillow==7.0.0
+pkg-resources==0.0.0
+psycopg2==2.7.4
 pudb==2019.2
 Pygments==2.5.2
+python-decouple==3.3
 pytz==2019.3
 sqlparse==0.3.0
 Unipath==1.1
 urwid==2.1.0
+whitenoise==5.0.1
