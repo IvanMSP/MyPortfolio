@@ -20,3 +20,5 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+SECRET_KEY = os.environ['SECRET_KEY']
