@@ -3,7 +3,6 @@ Django==2.2.8
 djangorestframework==3.10.3
 gunicorn==20.0.4
 Pillow==7.0.0
-pkg-resources==0.0.0
 psycopg2==2.7.4
 pudb==2019.2
 Pygments==2.5.2
