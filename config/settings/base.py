@@ -4,6 +4,7 @@ from unipath import Path
 BASE_DIR = Path(__file__).ancestor(3)
 sys.path.append(BASE_DIR.child('apps'))
 
+SECRET_KEY = config('SECRET_KEY', default='3sc8v@mxzfssp=vfbh!k=@4t!u9lwlgqx&*^o%v@l3$9z)-le)')
 # Application definition
 
 DJANGO_APPS = [

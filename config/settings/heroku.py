@@ -20,5 +20,3 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-SECRET_KEY = config('SECRET_KEY', default='3sc8v@mxzfssp=vfbh!k=@4t!u9lwlgqx&*^o%v@l3$9z)-le)')
