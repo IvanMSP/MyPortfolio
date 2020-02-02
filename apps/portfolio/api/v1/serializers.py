@@ -22,7 +22,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'id',
             'username',
             'first_name',
             'last_name',
@@ -32,18 +31,15 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
-    links = LinkSerializer(many=True, read_only=True)
 
     class Meta:
         model = Profile
         fields = (
-            'id',
             'user',
             'avatar',
             'profession',
             'location',
             'about',
-            'links'
         )
 
 
