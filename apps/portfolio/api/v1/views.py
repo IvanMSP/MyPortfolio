@@ -8,6 +8,7 @@ from portfolio_framework.views import (
 
 # Serializers
 from .serializers import (
+    UserSerializer,
     ExperienceSerializer,
     ProfileSerializer,
     EducationSerializer,
@@ -15,16 +16,17 @@ from .serializers import (
 )
 # Models
 from ...models import Profile
+from django.contrib.auth.models import User
 
 
-class ProfileView(RetrieveView):
+class UserView(RetrieveView):
     """
         View for detail profile User
         params: username
     """
-    serializer_class = ProfileSerializer
-    lookup_field = 'user__username'
-    queryset = Profile.objects.get_queryset()
+    serializer_class = UserSerializer
+    lookup_field = 'username'
+    queryset = User.objects.get_queryset()
 
 
 class ExperienceView(ListView):
