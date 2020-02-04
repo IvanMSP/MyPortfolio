@@ -29,6 +29,16 @@ class UserView(RetrieveView):
     queryset = User.objects.get_queryset()
 
 
+class ProfileView(RetrieveView):
+    """
+        View for detail profile User
+        params: username
+    """
+    serializer_class = ProfileSerializer
+    lookup_field = 'user__username'
+    queryset = Profile.objects.get_queryset()
+
+
 class ExperienceView(ListView):
     """
         ListView Experiences User
