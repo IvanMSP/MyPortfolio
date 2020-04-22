@@ -17,6 +17,7 @@ DJANGO_APPS = [
 
 OWNER_APPS = [
     'portfolio.apps.PortfolioConfig',
+    'blog.apps.BlogConfig',
     'portfolio_framework',
 ]
 
